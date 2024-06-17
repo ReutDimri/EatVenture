@@ -9,12 +9,12 @@ export default function RouteOptionsScreen() {
   const [vegetarian, setVegetarian] = useState(false);
   const navigation = useNavigation();
   const route = useRoute();
-  const { city, neighborhood, location } = route.params;
+  const { city, street, location } = route.params;
 
   const handleGenerateRoutes = () => {
     const queryParams = {
       city,
-      neighborhood,
+      street,
       numberOfStops,
       kosher,
       vegetarian,

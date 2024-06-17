@@ -6,14 +6,16 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
-
   "dependencies": {
     "@expo/metro-runtime": "~3.2.1",
+    "@react-native-community/geolocation": "^3.2.1",
     "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-picker/picker": "^2.7.7",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
     "axios": "^1.7.2",
     "expo": "~51.0.13",
+    "expo-linear-gradient": "^13.0.2",
     "expo-location": "^17.0.1",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",

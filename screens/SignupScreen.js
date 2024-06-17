@@ -19,14 +19,26 @@ export default function SignupScreen() {
       isBusinessOwner,
       businessName: isBusinessOwner ? businessName : null
     };
+    console.log('User data:', userData); // Log the data being sent
 
-    axios.post('http://your-django-server-url/api/signup', userData)
+    axios.post('http://127.0.0.1:8000/api/signup/', userData)
       .then(response => {
-        // Handle signup response
+        console.log('Response:', response.data); // Log the response
+        if (response.status === 201) {
+          navigation.navigate('Home');
+        } else {
+          Alert.alert("Signup failed", "An error occurred");
+        }
       })
       .catch(error => {
-        console.error(error);
+        console.error('Error:', error);
+        Alert.alert("Signup failed", "An error occurred");
+      })
+      .catch(error => {
+        console.error('Error:', error.response ? error.response.data : error.message);
+        Alert.alert("Signup failed", error.response ? error.response.data.message : "An error occurred");
       });
+      
   };
 
   return (

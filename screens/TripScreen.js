@@ -28,7 +28,10 @@ export default function TripScreen() {
   );
 }
 
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor,} })
+    container: {
+        flex: 1,
+        backgroundColor: '#fff', // You need to provide a value for backgroundColor
+        }
+      });

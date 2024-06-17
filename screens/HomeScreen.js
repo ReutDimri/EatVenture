@@ -1,23 +1,32 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={['#00796B', '#004D40']}
+      style={styles.container}
+    >
       <Image source={require('../assets/Eat-Venture.png')} style={styles.logo} />
       <Text style={styles.title}>Welcome to EatVenture</Text>
-      <Button title="Get Started" onPress={() => navigation.navigate('SelectLocation')} />
-    </View>
+      <Text style={styles.subtitle}>Explore the best food adventures around you!</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('SelectLocation')}
+      >
+        <Text style={styles.buttonText}>Get Started</Text>
+      </TouchableOpacity>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E0F7FA',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -28,8 +37,26 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 24,
-    marginBottom: 20,
-    color: '#00796B',
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 18,
+    color: '#B2DFDB',
+    marginBottom: 40,
+    textAlign: 'center',
+  },
+  button: {
+    backgroundColor: '#004D40',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 25,
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
