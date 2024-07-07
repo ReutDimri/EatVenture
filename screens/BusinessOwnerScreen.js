@@ -56,7 +56,9 @@ const BusinessOwnerScreen = ({ navigation }) => {
         });
       }
 
-      const response = await fetch('http://127.0.0.1:8000/api/create_place/', {
+      const apiUrl = process.env.REACT_APP_API_URL;
+  
+      const response = await fetch(`${apiUrl}/api/create_place/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -64,7 +66,7 @@ const BusinessOwnerScreen = ({ navigation }) => {
         body: formData,
       });
 
-      const data = await response.json();
+    const data = await response.json();
 
       if (response.ok) {
         Alert.alert('Success', 'Business information has been added successfully');

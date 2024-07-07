@@ -18,9 +18,10 @@ const SignupScreen = ({ navigation }) => {
         businessName: is_business_owner ? businessName : null
       };
       console.log('User data:', userData); // Log the data being sent
-
+    
+    const apiUrl = process.env.REACT_APP_API_URL;
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/signup/', {
+      const response = await fetch('${apiUrl}/api//signup/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

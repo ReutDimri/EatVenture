@@ -6,8 +6,7 @@ import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import HomeScreen from './screens/HomeScreen';
 import BusinessOwnerScreen from './screens/BusinessOwnerScreen';
-import RoutePlannerScreen from './screens/RoutePlannerScreen';
-
+import RoutePlannerScreen from './screens/RoutePlannerScreen';s
 
 const Stack = createStackNavigator();
 

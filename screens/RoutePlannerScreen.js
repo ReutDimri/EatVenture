@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet, Image, Pressable, TextInput, View, Alert, Switch, ScrollView, Picker, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, Image, Pressable, View, Alert, Switch, ScrollView, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Location from 'expo-location';
 import { Ionicons } from '@expo/vector-icons';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { Picker } from '@react-native-picker/picker';
 
 const RoutePlannerScreen = ({ navigation }) => {
   const [location, setLocation] = useState(null);
@@ -65,14 +66,10 @@ const RoutePlannerScreen = ({ navigation }) => {
               }}
               fetchDetails={true}
               query={{
-                key: 'AIzaSyCXA-2ogmX_O4eFcyXUqto6LFOHwzMwLco',
+                key: 'AIzaSyAJLe6L_bHnzqC6K3YO0ET_iw7D1gmo07I',
                 language: 'en',
                 types: '(cities)',
                 componentRestrictions: { country: 'IL' },
-              }}
-              requestUrl={{
-                useOnPlatform: 'web',
-                url: 'https://maps.googleapis.com/maps/api',
               }}
               styles={{
                 textInputContainer: {
@@ -87,6 +84,7 @@ const RoutePlannerScreen = ({ navigation }) => {
                   fontSize: 16,
                 },
               }}
+              id="cityAutocomplete"
             />
           </View>
 
@@ -99,14 +97,10 @@ const RoutePlannerScreen = ({ navigation }) => {
               }}
               fetchDetails={true}
               query={{
-                key: 'AIzaSyCXA-2ogmX_O4eFcyXUqto6LFOHwzMwLco',
+                key: 'AIzaSyAJLe6L_bHnzqC6K3YO0ET_iw7D1gmo07I',
                 language: 'en',
                 types: 'address',
                 componentRestrictions: { country: 'IL' },
-              }}
-              requestUrl={{
-                useOnPlatform: 'web',
-                url: 'https://maps.googleapis.com/maps/api',
               }}
               styles={{
                 textInputContainer: {
@@ -121,6 +115,7 @@ const RoutePlannerScreen = ({ navigation }) => {
                   fontSize: 16,
                 },
               }}
+              id="addressAutocomplete"
             />
           </View>
 
@@ -174,11 +169,12 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-    padding: 20,
+    justifyContent: 'center',
   },
   innerContainer: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   logo: {
     width: 200,
@@ -203,7 +199,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   pickerContainer: {
-    width: '100%', // Adjust width to 100% to ensure it fits the container
+    width: '100%',
     height: 50,
     backgroundColor: '#004D40',
     borderRadius: 25,
@@ -219,7 +215,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   switchContainer: {
-    width: '100%', // Adjust width to 100% to ensure it fits the container
+    width: '100%',
     height: 50,
     flexDirection: 'row',
     alignItems: 'center',
@@ -262,7 +258,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
   },
   autocompleteContainer: {
-    width: '100%', // Adjust width to 100% to ensure it fits the container
+    width: '100%',
   },
   continueButton: {
     backgroundColor: '#004D40',
